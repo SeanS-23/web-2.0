@@ -1,5 +1,84 @@
 <template>
   <v-app>
+    <v-row justify="center">
+    <v-dialog
+      v-model="dialog"
+      persistent
+      max-width="600px"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          color="primary"
+          dark
+          v-bind="attrs"
+          v-on="on"
+        >
+          Open Dialog
+        </v-btn>
+      </template>
+      <v-card>
+        <v-card-title>
+          <span class="text-h5">User Profile</span>
+        </v-card-title>
+        <v-card-text>
+          <v-container>
+            <v-row>
+              <v-col cols="12">
+                <v-text-field
+                  label="Username/Email*"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12">
+                <v-text-field
+                  label="Password*"
+                  type="password"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+              >
+                <v-select
+                  :items="['0-17', '18-29', '30-54', '54+']"
+                  label="Age*"
+                  required
+                ></v-select>
+              </v-col>
+              <v-col
+                cols="12"
+                sm="6"
+              >
+                <v-autocomplete
+                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
+                  label="Interests"
+                  multiple
+                ></v-autocomplete>
+              </v-col>
+            </v-row>
+          </v-container>
+          <small>*indicates required field</small>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            text
+            @click="dialog = false"
+          >
+            Close
+          </v-btn>
+          <v-btn
+            text
+            @click="dialog = false"
+          >
+            Save
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
+  </v-row>
+
     <v-app-bar app dark class="app-bar">
       <div class="d-flex align-center">
         <v-icon size="32" class="primary--color"> mdi-robot-love </v-icon>
@@ -17,9 +96,12 @@
       </v-text-field>
 
       <v-btn text class="text-none pl-3 pr-3"> 
-        <v-text class="text-none app-bar-primary--text">
+        <span 
+          class="text-none app-bar-primary--text"
+          @click="dialog = true"
+        >
           Log In / Sign Up 
-        </v-text>
+        </span>
       </v-btn>
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
@@ -51,6 +133,7 @@
 
     <v-main>
       <router-view/>
+      
     </v-main>
   </v-app>
 </template>
@@ -64,6 +147,11 @@ body {
 
 :root .v-application .app-bar-primary--text {
   color: #F8BBD0 !important;
+  caret-color: #a7ffeb !important;
+}
+
+:root .v-application .app-bar-secondary--text {
+  color: #A5D6A7 !important;
   caret-color: #a7ffeb !important;
 }
 
@@ -87,7 +175,7 @@ export default {
   name: 'App',
 
   data: () => ({
-    //
-  }),
-};
+      dialog: true,
+    })
+}
 </script>
