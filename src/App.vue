@@ -1,84 +1,6 @@
 <template>
   <v-app>
-    <v-row justify="center">
-    <v-dialog
-      v-model="dialog"
-      persistent
-      max-width="600px"
-    >
-      <template v-slot:activator="{ on, attrs }">
-        <v-btn
-          color="primary"
-          dark
-          v-bind="attrs"
-          v-on="on"
-        >
-          Open Dialog
-        </v-btn>
-      </template>
-      <v-card>
-        <v-card-title>
-          <span class="text-h5">User Profile</span>
-        </v-card-title>
-        <v-card-text>
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <v-text-field
-                  label="Username/Email*"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col cols="12">
-                <v-text-field
-                  label="Password*"
-                  type="password"
-                  required
-                ></v-text-field>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-              >
-                <v-select
-                  :items="['0-17', '18-29', '30-54', '54+']"
-                  label="Age*"
-                  required
-                ></v-select>
-              </v-col>
-              <v-col
-                cols="12"
-                sm="6"
-              >
-                <v-autocomplete
-                  :items="['Skiing', 'Ice hockey', 'Soccer', 'Basketball', 'Hockey', 'Reading', 'Writing', 'Coding', 'Basejump']"
-                  label="Interests"
-                  multiple
-                ></v-autocomplete>
-              </v-col>
-            </v-row>
-          </v-container>
-          <small>*indicates required field</small>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn
-            text
-            @click="dialog = false"
-          >
-            Close
-          </v-btn>
-          <v-btn
-            text
-            @click="dialog = false"
-          >
-            Save
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-dialog>
-  </v-row>
-
+    <router-link to="/log"></router-link>
     <v-app-bar app dark class="app-bar">
       <div class="d-flex align-center">
         <v-icon size="32" class="primary--color"> mdi-robot-love </v-icon>
@@ -87,53 +9,39 @@
 
       <v-spacer></v-spacer>
 
-      <v-text-field 
-      class="search-bar mt-6 pl-3 pr-3"
-      placeholder="Search" 
-      prepend-inner-icon="mdi-magnify primary--color"
-      filled 
-      dense>
+      <v-text-field
+        class="search-bar mt-6 pl-3 pr-3"
+        placeholder="Search"
+        prepend-inner-icon="mdi-magnify primary--color"
+        filled
+        dense
+      >
       </v-text-field>
 
-      <v-btn text class="text-none pl-3 pr-3"> 
-        <span 
-          class="text-none app-bar-primary--text"
-          @click="dialog = true"
-        >
-          Log In / Sign Up 
-        </span>
+      <v-btn text class="text-none app-bar-primary--text pl-3 pr-3">
+        <router-link to="/log">
+          <span class="app-bar-primary--text"> Log in / Sign up </span>
+        </router-link>
       </v-btn>
       <v-menu offset-y>
         <template v-slot:activator="{ on, attrs }">
-          <v-btn
-            color="primary"
-            text
-            dark
-            v-bind="attrs"
-            v-on="on"
-          >
+          <v-btn color="primary" text dark v-bind="attrs" v-on="on">
             <v-icon class="primary--color"> mdi-account-outline </v-icon>
             <v-icon class="primary--color"> mdi-chevron-down </v-icon>
           </v-btn>
         </template>
-        <v-list dark>
-          <v-list-item>
-            <v-btn text class="text-none app-bar-primary--text"> Tab 1 </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn text class="text-none app-bar-primary--text"> Tab 1 </v-btn>
-          </v-list-item>
-          <v-list-item>
-            <v-btn text class="text-none app-bar-primary--text">  Tab 1 </v-btn>
-          </v-list-item>
-        </v-list>
+        <v-tabs vertical dark>
+          <v-tab class="tab-item"> Hello </v-tab>
+          <v-tab class="tab-item"> There </v-tab>
+          <v-tab class="tab-item"> Sharkeisha </v-tab>
+          <v-tab class="tab-item"> Shut </v-tab>
+          <v-tab class="tab-item"> It </v-tab>
+        </v-tabs>
       </v-menu>
-        
     </v-app-bar>
 
     <v-main>
-      <router-view/>
-      
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -145,26 +53,77 @@ body {
   background-color: #0a182f;
 }
 
-:root .v-application .app-bar-primary--text {
-  color: #F8BBD0 !important;
+.app-bar-primary--text {
+  color: #f8bbd0 !important;
   caret-color: #a7ffeb !important;
 }
 
-:root .v-application .app-bar-secondary--text {
-  color: #A5D6A7 !important;
+.app-bar-secondary--text {
+  color: #a5d6a7 !important;
   caret-color: #a7ffeb !important;
 }
 
-:root .v-application .primary--color {
-  color: #F8BBD0 !important;
+.primary--color {
+  color: #f8bbd0 !important;
 }
 
-::root .v-application .secondary--color {
-  color: #A5D6A7 !important;
+.primary-bg--color {
+  background: #f8bbd0 !important;
+}
+
+.secondary--color {
+  color: #a5d6a7 !important;
+}
+
+.secondary-bg--color {
+  background: #a5d6a7 !important;
+}
+
+.v-application a {
+  color: #f8bbd0 !important;
+  text-decoration: none;
+}
+
+.v-list-item {
+  align-items: center;
+  display: flex;
+  flex: 1 1 100%;
+  letter-spacing: normal;
+  min-height: 48px;
+  width: max-content;
+  outline: none;
+  padding: 0 0 !important;
+  position: relative;
+  text-decoration: none;
 }
 
 .theme--dark.v-text-field > .v-input__control > .v-input__slot:before {
-    border-color: transparent !important; // erase search bar outline
+  border-color: transparent !important; // erase search bar outline
+}
+
+.forgot-password {
+  display: flex;
+  align-items: center;
+}
+
+.sign-in-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-in-button {
+  color: black;
+}
+
+.profile-tab-bar {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  width: max-content !important;
+}
+
+.tab-item:hover {
+  color: #f8bbd0 !important;
 }
 
 </style>
@@ -172,10 +131,11 @@ body {
 
 <script>
 export default {
-  name: 'App',
+  name: "App",
 
   data: () => ({
-      dialog: true,
-    })
-}
+    dialog: true,
+    checkbox: true,
+  }),
+};
 </script>
