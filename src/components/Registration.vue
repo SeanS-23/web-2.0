@@ -9,21 +9,47 @@
       </template>
       <v-card>
         <v-card-title class="sign-in-title">
-          <span class="text-h4"> Sign in </span>
+          <span class="text-h4"> Register </span>
         </v-card-title>
         <v-card-text>
           <v-container>
             <v-row>
-              <v-col cols="12">
-                <v-text-field label="Username/Email*" required></v-text-field>
+              <v-col cols="12" sm="6">
+                <v-text-field label="First Name*" required></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field label="Last Name*" required />
               </v-col>
               <v-col cols="12">
+                <v-text-field label="Email*" required />
+              </v-col>
+              <v-col cols="12">
+                <v-text-field label="Username*" required />
+              </v-col>
+              <v-col cols="12" sm="6">
                 <v-text-field
                   label="Password*"
                   type="password"
                   required
                 ></v-text-field>
               </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field
+                  label="Re-type Password*"
+                  type="password"
+                  required
+                ></v-text-field>
+              </v-col>
+              <v-col cols="12" sm="6">
+                <v-text-field label="Phone Number (optional)" required />
+              </v-col>
+              <v-col cols="12" sm="6">
+                  <v-select
+                    :items="['0 - 17', '18 - 21', '21 - 30', '30 - 45', '45 - 60', '60 +']"
+                    label="Age (optional)"
+                    required
+                  ></v-select>
+                </v-col>
               <v-col cols="12">
                 <v-btn block>
                   <span class="sign-in-button"> Sign in </span>
@@ -41,9 +67,9 @@
                 <span class="text-body-2"> Forgot password? </span>
               </v-col>
               <v-col>
-                <span> Don't have an account? </span>
-                <router-link to="/register">
-                  <span class="app-bar-primary--text"> Register here! </span>
+                <span> Already have an account? </span>
+                <router-link to="/log">
+                  <span class="app-bar-primary--text"> Sign in here! </span>
                 </router-link>
               </v-col>
 
@@ -91,7 +117,7 @@
 
 <script>
 export default {
-  name: "LogIn",
+  name: "Register",
 
   data: () => ({
     dialog: true,
