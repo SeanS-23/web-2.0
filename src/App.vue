@@ -18,7 +18,11 @@
       >
       </v-text-field>
 
-      <v-btn text class="text-none app-bar-primary--text pl-3 pr-3">
+      <v-btn 
+      text 
+      class="text-none app-bar-primary--text pl-3 pr-3"
+      @click.stop = "dialog = true"
+      >
         <router-link to="/log">
           <span class="app-bar-primary--text"> Log in / Sign up </span>
         </router-link>
@@ -31,11 +35,30 @@
           </v-btn>
         </template>
         <v-tabs vertical dark>
-          <v-tab class="tab-item"> Hello </v-tab>
-          <v-tab class="tab-item"> There </v-tab>
-          <v-tab class="tab-item"> Sharkeisha </v-tab>
-          <v-tab class="tab-item"> Shut </v-tab>
-          <v-tab class="tab-item"> It </v-tab>
+          <v-tab class="text-none tab-item">
+            <v-icon class="primary--color pr-1"> mdi-account </v-icon>
+            Profile
+          </v-tab>
+          <v-tab class="text-none tab-item">
+            <v-icon class="primary--color pr-1"> mdi-atom </v-icon>
+            Premium
+          </v-tab>
+          <v-tab class="text-none tab-item">
+            <v-icon class="primary--color pr-1"> mdi-bitcoin </v-icon>
+            Botcoin
+          </v-tab>
+          <v-tab class="text-none tab-item">
+            <v-icon class="primary--color pr-1"> mdi-help-circle </v-icon>
+            FAQ
+          </v-tab>
+          <v-tab class="text-none tab-item">
+            <v-icon class="primary--color pr-1"> mdi-robot-angry </v-icon>
+            Rage
+          </v-tab>
+          <v-tab class="text-none tab-item">
+            <v-icon class="primary--color pr-1"> mdi-glasses </v-icon>
+            Dev Page
+          </v-tab>
         </v-tabs>
       </v-menu>
     </v-app-bar>
@@ -122,10 +145,14 @@ body {
   width: max-content !important;
 }
 
+.tab-item {
+  display: flex;
+  justify-content: left !important;
+}
+
 .tab-item:hover {
   color: #f8bbd0 !important;
 }
-
 </style>
 
 
@@ -134,8 +161,6 @@ export default {
   name: "App",
 
   data: () => ({
-    dialog: true,
-    checkbox: true,
   }),
 };
 </script>

@@ -3,14 +3,18 @@ import App from './App.vue'
 import vuetify from './plugins/vuetify'
 import router from './router'
 import store from './store'
-import axios from 'axios'
 import vueCookie from 'vue-cookie'
 import status from 'http-status'
 import { pick } from 'lodash'
 
+import Vuelidate from "vuelidate";
+Vue.use(Vuelidate);
+
+const axios = require('axios');
+
 // Put your instance of Axios in `Vue.prototype` which gives you easy global access to it.
 // You can pass in configuration that is shared application-wide.
-Vue.prototype.$http = axios.create()
+Vue.prototype.$http = axios.create();
 
 // This first fat arrow function defines a callback invoked after any SUCCESSFUL request.
 // This is where we check if the backend included an `access-token` header.
