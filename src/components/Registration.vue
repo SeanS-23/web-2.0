@@ -140,10 +140,10 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn text>
-            <router-link to="/home"> Save </router-link>
+            <router-link to="/"> Save </router-link>
           </v-btn>
           <v-btn text>
-            <router-link to="/home"> Close </router-link>
+            <router-link to="/"> Close </router-link>
           </v-btn>
         </v-card-actions>
       </v-card>
