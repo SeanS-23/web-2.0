@@ -1,4 +1,4 @@
-/*-import Vue from "vue";
+import Vue from "vue";
 import { serialize } from "object-to-formdata";
 
 export default class BaseService {
@@ -12,4 +12,4 @@ export default class BaseService {
     this.serialize = serialize;
     this.baseUrl = baseUrl;
   }
-}*/
+}

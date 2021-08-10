@@ -92,10 +92,11 @@
 
 <script>
 import { required, minLength, email } from "vuelidate/lib/validators";
-import { signIn } from "@/services/auth-service";
+import AuthService from "@/services/auth-service";
 export default {
   data() {
     return {
+      Auth: new AuthService(),
       dialog: true,
       checkbox: true,
       email: "",
@@ -142,7 +143,7 @@ export default {
       if (this.$v.$invalid || this.signingIn) return;
       //Sign in
       this.signingIn = true;
-      signIn({
+      this.Auth.signIn({
         email: this.email,
         password: this.password,
       })
