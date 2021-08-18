@@ -1,6 +1,5 @@
 import axios from "axios";
 import { pick } from "lodash";
-import router from "./router";
 import store from "./store";
 import vueCookie from "vue-cookie";
 
@@ -50,7 +49,7 @@ const failedAuthorizedHeaders = (error) => {
 $http.interceptors.response.use(setAuthorizedHeaders, failedAuthorizedHeaders);
 
 $http.interceptors.request.use((config) => {
-  const headers = store.getters.getAuthentication;
+  const headers = store.getters.auth;
   if (headers.uid === null) {
     return config;
   }
