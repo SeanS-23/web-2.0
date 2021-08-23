@@ -44,7 +44,7 @@ export default class AuthService extends  BaseService {
                 })
                 .catch(reject);
         });
-    };
+    }
 
     /**
      *
@@ -83,18 +83,18 @@ export default class AuthService extends  BaseService {
                 })
                 .catch(reject);
         });
-    };
+    }
 
     validateToken(){
         return new Promise((resolve, reject) => {
             this.$http
-                .get(`${baseURL}/validate_token`)
+                .get(`${this.baseUrl}/validate_token`)
                 .then((response) => {
                     store.commit("user/setUserDetails", response.data.data);
                     resolve(response);
                 })
                 .catch(reject);
         });
-    };
+    }
 
 }
