@@ -48,7 +48,7 @@
               </v-col>
               <v-col>
                 <span> Don't have an account? </span>
-                <router-link to="/register">
+                <router-link to="/sign_up">
                   <span class="app-bar-primary--text"> Register here! </span>
                 </router-link>
               </v-col>

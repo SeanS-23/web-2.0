@@ -23,7 +23,7 @@
       class="text-none app-bar-primary--text pl-3 pr-3"
       @click.stop = "dialog = true"
       >
-        <router-link to="/log">
+        <router-link to="/sign_in">
           <span class="app-bar-primary--text"> Log in / Sign up </span>
         </router-link>
       </v-btn>

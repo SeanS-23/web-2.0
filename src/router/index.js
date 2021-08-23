@@ -18,12 +18,12 @@ const routes = [{
     component: Auth,
     children: [
         {
-            path: '/log',
+            path: '/sign_in',
             name: 'Log',
             component: Log
         },
         {
-            path: '/register',
+            path: '/sign_up',
             name: 'Register',
             component: Register
         },
