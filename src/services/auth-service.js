@@ -58,7 +58,7 @@ export default class AuthService extends  BaseService {
                 password: loginModel.password,
             };
             this.$http
-                .post(`${this.baseUrl}/log`, serialize(body))
+                .post(`${this.baseUrl}/sign_in`, serialize(body))
                 .then((response) => {
                     const authHeaders = pick(response.headers, [
                         "access-token",
