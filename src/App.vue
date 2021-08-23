@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <router-link to="/log"></router-link>
+    <router-link to="/sign_in"></router-link>
     <v-app-bar app dark class="app-bar">
       <div class="d-flex align-center">
         <v-icon size="32" class="primary--color"> mdi-robot-love </v-icon>
