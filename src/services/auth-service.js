@@ -6,7 +6,7 @@ import BaseService from "./base-service";
 
 export default class AuthService extends  BaseService {
     constructor() {
-        super("auth");
+        super("users");
     }
     signUp(userModel){
         return new Promise((resolve, reject) => {
