@@ -18,7 +18,7 @@ export default class AuthService extends  BaseService {
                 password_confirmation: userModel.passwordConfirmation,
             };
             this.$http
-                .post(this.baseURL, serialize(body))
+                .post(this.baseUrl, serialize(body))
                 .then((response) => {
                     const authHeaders = pick(response.headers, [
                         "accessToken",
@@ -58,7 +58,7 @@ export default class AuthService extends  BaseService {
                 password: loginModel.password,
             };
             this.$http
-                .post(`${this.baseURL}/log`, serialize(body))
+                .post(`${this.baseUrl}/log`, serialize(body))
                 .then((response) => {
                     const authHeaders = pick(response.headers, [
                         "access-token",
