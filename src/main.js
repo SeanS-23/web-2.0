@@ -12,6 +12,14 @@ Vue.use(Vuelidate);
 // You can pass in configuration that is shared application-wide.
 Vue.prototype.$http = axios
 
+Vue.prototype.$http.interceptors.request.use((config) => {
+    const headers = store.getters['auth']
+  
+    // object that holds configuration of the request that's about to be made
+    config.headers = headers
+    return config
+  })
+
 new Vue({
     vuetify,
     router,
