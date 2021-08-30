@@ -1,5 +1,6 @@
 import axios from "axios";
 import { pick } from "lodash";
+import router from "./router";
 import store from "./store";
 import vueCookie from "vue-cookie";
 
@@ -49,7 +50,7 @@ const failedAuthorizedHeaders = (error) => {
 $http.interceptors.response.use(setAuthorizedHeaders, failedAuthorizedHeaders);
 
 $http.interceptors.request.use((config) => {
-  const headers = store.getters.auth;
+  const headers = store.getters.getAuthentication;
   if (headers.uid === null) {
     return config;
   }
@@ -62,5 +63,26 @@ $http.interceptors.request.use((config) => {
   return config;
 });
 
+$http.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (
+      router.currentRoute.name !== "SignIn" &&
+      error.response?.status === 401
+    ) {
+      store.commit("auth/resetAuthentication");
+      router.push({ name: "SignIn" });
+      return Promise.reject(error);
+    }
+
+    if (
+      [403, 404].includes(error.response?.status) &&
+      router.currentRoute.name !== "SignIn"
+    ) {
+      router.push({ name: "Home" });
+    }
+    return Promise.reject(error);
+  }
+);
 
 export default $http;

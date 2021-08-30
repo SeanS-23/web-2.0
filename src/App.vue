@@ -23,7 +23,7 @@
         class="text-none app-bar-primary--text pl-3 pr-3"
         @click.stop="dialog = true"
       >
-        <router-link to="/sign_in">
+        <router-link to="/create">
           <span class="app-bar-primary--text"> Log in / Sign up </span>
         </router-link>
       </v-btn>
@@ -159,16 +159,6 @@ body {
 <script>
 export default {
   name: "App",
-
-  beforeCreate() {
-    const existingSession = this.$cookie.get('session')
-
-    if (existingSession && existingSession.length) { // A string at this point
-      const session = JSON.parse(existingSession)
-      this.$store.commit('user', session.user)
-      this.$store.commit('auth', session.tokens)
-    }
-  },
 
   data: () => ({
   }),

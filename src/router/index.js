@@ -2,40 +2,29 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
-import Log from '@/views/Log.vue'
-import Register from '@/views/Register.vue'
-import Auth from "@/views/Auth.vue";
+import SignUp from "@/components/SignUpUser.vue"
+import Edit from "@/components/EditUser.vue"
 
 Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
+    redirect: { name: 'home' }
+},
+{
+    path: '/home',
     name: 'Home',
     component: Home
 },
 {
-    path: "/auth",
-    component: Auth,
-    children: [
-        {
-            path: '/sign_in',
-            name: 'Log',
-            component: Log
-        },
-        {
-            path: '/sign_up',
-            name: 'Register',
-            component: Register
-        },
-        {
-            path: "",
-            redirect: "/",
-        },
-        {
-            path: "*",
-            redirect: "/",
-        },
-    ],
+    path: '/create',
+    name: 'Create',
+    component: Create
+},
+{
+    path: '/edit/:id',
+    name: 'Edit',
+    component: Edit
 },
 {
     path: '/about',
