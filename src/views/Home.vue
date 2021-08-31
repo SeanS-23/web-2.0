@@ -47,6 +47,8 @@
 import { server } from "../helper";
 import axios from "axios";
 export default {
+  name: 'Home',
+  
   data() {
     return {
       customers: []

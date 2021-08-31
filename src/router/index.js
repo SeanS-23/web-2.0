@@ -2,14 +2,14 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
-import SignUp from "@/components/SignUpUser.vue"
-import Edit from "@/components/EditUser.vue"
+import SignUp from "@/views/SignUp.vue"
+import Edit from "@/views/Edit.vue"
 
 Vue.use(VueRouter)
 
 const routes = [{
     path: '/',
-    redirect: { name: 'home' }
+    redirect: { name: 'Home' }
 },
 {
     path: '/home',
@@ -17,9 +17,9 @@ const routes = [{
     component: Home
 },
 {
-    path: '/create',
-    name: 'Create',
-    component: Create
+    path: '/sign-up',
+    name: 'SignUp',
+    component: SignUp
 },
 {
     path: '/edit/:id',

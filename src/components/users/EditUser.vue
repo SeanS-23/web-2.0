@@ -70,7 +70,8 @@ export default {
           customerData
         )
         .then(data => {
-          router.push({ name: "home" });
+          console.log(data);
+          router.push({ name: "Home" });
         });
     },
     getCustomer() {
@@ -81,6 +82,6 @@ export default {
     navigate() {
       router.go(-1);
     }
-  }
+  },
 };
 </script>

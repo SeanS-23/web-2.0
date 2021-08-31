@@ -46,7 +46,7 @@ export default {
       email: "",
       phone: "",
       address: "",
-      description: ""
+      description: "",
     };
   },
   methods: {
@@ -63,7 +63,7 @@ export default {
     },
     __submitToServer(data) {
       axios.post(`${server.baseURL}/customer/create`, data).then(data => {
-        router.push({ name: "home" });
+        router.push({ name: "Home" });
       });
     }
   }
