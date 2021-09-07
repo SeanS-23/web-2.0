@@ -3,7 +3,11 @@
     <router-link to="/sign_in"></router-link>
     <v-app-bar app dark class="app-bar">
       <div class="d-flex align-center">
-        <v-icon size="32" class="primary--color"> mdi-robot-love </v-icon>
+        <v-btn icon>
+          <router-link to="/">
+            <v-icon size="32" class="primary--color"> mdi-robot-love </v-icon>
+          </router-link>
+        </v-btn>
         <span class="text-h6 app-bar-primary--text pl-3 pr-3"> BotBoi </span>
       </div>
 
@@ -160,7 +164,6 @@ body {
 export default {
   name: "App",
 
-  data: () => ({
-  }),
+  data: () => ({}),
 };
 </script>

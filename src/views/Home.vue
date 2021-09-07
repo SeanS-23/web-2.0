@@ -15,6 +15,7 @@
                   <th scope="col">Firstname</th>
                   <th scope="col">Lastname</th>
                   <th scope="col">Email</th>
+                  <th scope="col">Password</th>
                   <th scope="col">Phone</th>
                   <th scope="col">Address</th>
                   <th scope="col">Description</th>
@@ -26,6 +27,7 @@
                   <td>{{ customer.first_name }}</td>
                   <td>{{ customer.last_name }}</td>
                   <td>{{ customer.email }}</td>
+                  <td>{{ customer.password }}</td>
                   <td>{{ customer.phone }}</td>
                   <td>{{ customer.address }}</td>
                   <td>{{ customer.description }}</td>

@@ -21,6 +21,10 @@
                 <input type="text" id="email" v-model="customer.email" name="title" class="form-control" placeholder="Enter email">
             </div>
             <div class="form-group col-md-12">
+                <label for="title"> Password </label>
+                <input type="text" id="password" v-model="customer.password" name="title" class="form-control" placeholder="Enter password">
+            </div>
+            <div class="form-group col-md-12">
                 <label for="title"> Phone </label>
                 <input type="text" id="phone_number" v-model="customer.phone" name="title" class="form-control" placeholder="Enter Phone number">
             </div>
@@ -60,6 +64,7 @@ export default {
         first_name: this.customer.first_name,
         last_name: this.customer.last_name,
         email: this.customer.email,
+        password: this.customer.password,
         phone: this.customer.phone,
         address: this.customer.address,
         description: this.customer.description
@@ -69,8 +74,7 @@ export default {
           `${server.baseURL}/customer/update?customerID=${this.id}`,
           customerData
         )
-        .then(data => {
-          console.log(data);
+        .then(() => {
           router.push({ name: "Home" });
         });
     },
